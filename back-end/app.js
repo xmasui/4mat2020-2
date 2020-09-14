@@ -27,4 +27,8 @@ app.use('/users', usersRouter);
 const teste = require('./routes/teste')
 app.use('/teste', teste) //comecar a validar teste passando a variavel
 
+//Rota para curso
+const curso = require('./routes/curso')
+app.use('/curso', curso)
+
 module.exports = app;

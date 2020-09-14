@@ -16,3 +16,25 @@
     PUT         Update
     DELETE      Delete
 */
+
+//Importar o model para dentro do controller
+const Curso = require('../models/Curso')
+
+const controller = {} //objeto vazio
+
+//método novo(), implementando a operação CREATE
+controller.novo = async (req, res) => {
+    try{
+        //Envia os dados dentro de req.body paro o BD para criação
+        await Curso.create(req.body)
+        //HTTP 201: Created
+        res.status(201).end()
+    }
+    catch(erro){
+        console.error(erro)
+        //HTTP 500: Internal Server Error
+        res.status(500).send(erro)
+    }
+}
+
+module.exports = controller

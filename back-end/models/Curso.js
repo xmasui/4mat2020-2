@@ -1,16 +1,18 @@
+const mongoose = require('mongoose')
+
 const esquema = mongoose.Schema({
-    nome: {
+    nome:{
         type: String,
         required: true //atributo obrigatório
     },
-    carga_horaria: {
+    carga_horaria:{
         type: Number,
         required: true,
         min: 4,
         max: 240,
         default: 100 //valor padrão
     },
-    nivel: {
+    nivel:{
         type: String,
         required: true,
         //conjunto dos valores válidos
