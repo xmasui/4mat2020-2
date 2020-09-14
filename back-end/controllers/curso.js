@@ -37,4 +37,28 @@ controller.novo = async (req, res) => {
     }
 }
 
+//método listar(), implementando a operação RETRIEVE all
+controller.listar = async (req, res) => {
+    try{
+    //find() sem parâmetros é para trazer tudo
+    let dados = await Curso.find()
+    res.send(dados) //vai com status HTTP 200: ok
+    }
+    catch(erro){
+        console.error(erro)
+    res.status(500).send(erro)
+    }
+}
+
+//método obterUm(), implementando a operação RETRIEVE one
+controller.obterUm = (req, res) => {
+    const id = req.params.id //capturando o parâmetro id
+    let obj = Curso.findById = id
+
+    //se o obj vier preenchido
+    if (obj) res.send(obj)
+    //se o obj estiver vazio enviamos HTTP 404
+    else res.status(404).end()
+}
+
 module.exports = controller
