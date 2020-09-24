@@ -31,4 +31,16 @@ app.use('/teste', teste) //comecar a validar teste passando a variavel
 const curso = require('./routes/curso')
 app.use('/curso', curso)
 
+//rota para professor
+const professor = require('./routes/professor')
+app.use('/professor', professor)
+
+//rota para sala de aula
+const sala_aula = require('./routes/sala_aula')
+app.use('/sala-aula', sala_aula)
+
+//rota para turma
+const turma = require('./routes/turma')
+app.use('/turma', turma)
+
 module.exports = app;
